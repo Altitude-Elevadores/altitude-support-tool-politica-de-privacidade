@@ -1,77 +1,128 @@
+/* Políticas de privacidade da Altitude: o mesmo arquivo nos dois repositórios
+   (app do cliente e Support Tool). Cores, fontes e logo do Manual de Marca 1.0 (2026). */
+
+@font-face { font-family: "Montserrat"; font-weight: 700; font-display: swap; src: url("fonts/montserrat-700.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 400; font-display: swap; src: url("fonts/inter-400.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 600; font-display: swap; src: url("fonts/inter-600.woff2") format("woff2"); }
+
+:root {
+  color-scheme: light;
+  --profundo: #061B33;
+  --institucional: #0A2A58;
+  --altitude: #1B75BC;
+  --sinal: #5AA9FF;
+  --grafite: #414142;
+  --aco: #5E6875;
+  --nevoa: #E9EDF2;
+  --papel: #F6F8FB;
+  --branco: #FFFFFF;
+  --linha: #D5DCE5;
+  --f-titulo: "Montserrat", Arial, "Helvetica Neue", sans-serif;
+  --f-texto: "Inter", Arial, "Helvetica Neue", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
+  margin: 0;
+  background: var(--papel);
+  color: var(--grafite);
+  font-family: var(--f-texto);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
 }
 
-header {
-    text-align: center;
-    margin-bottom: 40px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #eee;
-}
+.wrap { max-width: 820px; margin-inline: auto; padding-inline: 24px; }
+@media (max-width: 520px) { .wrap { padding-inline: 16px; } }
 
-h1 {
-    color: #2c3e50;
-    margin-bottom: 10px;
+/* Cabeçalho: faixa Azul Profundo com uma diagonal de 42° subindo para a direita */
+header { background: var(--profundo); color: var(--branco); position: relative; overflow: hidden; }
+header::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; right: -160px;
+  width: 300px;
+  background: var(--institucional);
+  transform: skewX(-48deg);
 }
-
-.last-updated {
-    color: #666;
-    font-size: 0.9em;
+header .wrap { position: relative; z-index: 1; padding-block: 48px 40px; }
+.marca { display: block; width: 220px; max-width: 70%; height: auto; }
+.slogan { margin: 10px 0 0; color: #C9D4E3; font-size: 15px; }
+.traco { width: 56px; height: 4px; background: var(--altitude); margin: 32px 0 24px; }
+.eyebrow {
+  margin: 0 0 8px;
+  font-family: var(--f-titulo);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--sinal);
 }
+h1 { margin: 0; font-family: var(--f-titulo); font-weight: 700; font-size: clamp(28px, 5vw, 40px); line-height: 1.15; }
+.data { margin: 12px 0 0; color: #8FA3BD; font-size: 14px; }
 
-main {
-    background: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+/* Conteúdo */
+main { padding-block: 40px 64px; }
+
+.intro {
+  background: var(--branco);
+  border: 1px solid var(--linha);
+  border-left: 4px solid var(--altitude);
+  border-radius: 6px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
 }
 
 section {
-    margin-bottom: 30px;
+  background: var(--branco);
+  border: 1px solid var(--linha);
+  border-radius: 6px;
+  padding: 28px 32px;
+  margin-bottom: 16px;
+  scroll-margin-top: 16px;
 }
+@media (max-width: 600px) { section, .contato { padding: 22px 18px; } }
 
 h2 {
-    color: #2c3e50;
-    border-bottom: 2px solid #f0f0f0;
-    padding-bottom: 10px;
-    margin-top: 30px;
+  margin: 0 0 14px;
+  font-family: var(--f-titulo);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.3;
+  color: var(--profundo);
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+}
+h2 .num { font-size: 13px; letter-spacing: .08em; color: var(--altitude); font-variant-numeric: tabular-nums; }
+
+p { margin: 0 0 12px; }
+p:last-child { margin-bottom: 0; }
+ul, ol { margin: 0 0 12px; padding-left: 22px; }
+li { margin-bottom: 6px; }
+strong { color: var(--profundo); font-weight: 600; }
+a { color: var(--altitude); }
+a:focus-visible { outline: 2px solid var(--altitude); outline-offset: 3px; }
+
+.tabela { overflow-x: auto; margin: 16px 0; border: 1px solid var(--linha); border-radius: 6px; }
+table { width: 100%; min-width: 560px; border-collapse: collapse; font-size: 15px; }
+th { background: var(--nevoa); color: var(--profundo); text-align: left; font-weight: 600; padding: 10px 14px; }
+td { padding: 10px 14px; border-top: 1px solid var(--linha); vertical-align: top; }
+.base {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--nevoa);
+  color: var(--institucional);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
-.highlight-box {
-    background-color: #e8f4fd;
-    border-left: 4px solid #3498db;
-    padding: 15px;
-    margin: 20px 0;
-    border-radius: 0 4px 4px 0;
-}
+.contato { background: var(--profundo); color: #C9D4E3; border-radius: 6px; padding: 28px 32px; margin-top: 24px; }
+.contato h2, .contato strong, .contato a { color: var(--branco); }
+.contato p { margin-bottom: 4px; }
 
-footer {
-    text-align: center;
-    margin-top: 40px;
-    color: #888;
-    font-size: 0.9em;
-}
-
-a {
-    color: #3498db;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-@media (max-width: 600px) {
-    body {
-        padding: 15px;
-    }
-    main {
-        padding: 20px;
-    }
-}
+footer { border-top: 1px solid var(--linha); padding-block: 24px; color: var(--aco); font-size: 14px; text-align: center; }
+footer a { color: var(--aco); }
